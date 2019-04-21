@@ -1,14 +1,15 @@
 import axios from "axios";
 const GOOGLE = "https://www.googleapis.com/books/v1/volumes?q=";
+const maxResults = "&maxResults=40"
 
 export default {
 
     //Search for a book
-    searchBook: (query) => {
-        return axios.get(GOOGLE + query);
+    searchBooks: function(query) {
+        return axios.get(GOOGLE + query + maxResults);
     },
     //Get all books
-    getBooks: () => {
+    getBook: () => {
         return axios.get("/api/books");
     },
     //Saves a book to the database
@@ -17,7 +18,7 @@ export default {
     },
     //Deletes the book with the given ID
     deleteBook: (id) => {
-        return axios.post("/api/books", bookData)
+        return axios.post("/api/books", id)
     }
 
 };
