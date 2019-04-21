@@ -11,13 +11,10 @@
     "nodemon": "^1.18.11"
   },
   "scripts": {
-    "start": "node index.js"
-  },
-  "devDependencies": {},
-  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rnakada/google-search.git"

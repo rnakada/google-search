@@ -12,11 +12,11 @@ app.use(express.json());
 //Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
-}
+};
 
 //Add routes, both API and view
-// app.use(routes);
-require("./routes")(app);
+app.use(routes)(app);
+// require("./routes")(app);
 
 //Request to React
 app.get("*", (req, res) => {
@@ -24,9 +24,9 @@ app.get("*", (req, res) => {
 });
 
 //Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongo://localhost/googlebooks", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user:username90@ds145456.mlab.com:45456/heroku_s0gbdf0d", { useNewUrlParser: true });
 
 //Start the API server
 app.listen(PORT, () => {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-})
+});
