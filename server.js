@@ -15,7 +15,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Add routes, both API and view
-app.use(routes);
+// app.use(routes);
+require("./routes")(app);
 
 //Request to React
 app.get("*", (req, res) => {
