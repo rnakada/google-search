@@ -3,6 +3,7 @@ const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:username90@ds145456.mlab.com:45456/heroku_s0gbdf0d";
 // const routes = require("./routes/index");
 
 // Serve up static assets (usually on heroku)
@@ -31,7 +32,11 @@ app.get("*", function (req, res) {
 });
 
 //Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://user:username90@ds145456.mlab.com:45456/heroku_s0gbdf0d", { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true }).then(() => {
+    console.log("Connected to Database");
+    }).catch((err) => {
+        console.log("Not Connected to Database ERROR! ", err);
+    });
 
 app.listen(PORT, function () {
     console.log(`🌎 ==> API server now on port ${PORT}!`);
