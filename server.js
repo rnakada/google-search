@@ -4,7 +4,10 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:username90@ds145456.mlab.com:45456/heroku_s0gbdf0d";
-// const routes = require("./routes/index");
+
+// const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
+
+// const routes = require("./routes");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
