@@ -9,8 +9,6 @@ class Books extends Component {
 
   state = {
     books: [],
-    title: "",
-    author: "",
     search: ""
   };
 
@@ -22,21 +20,8 @@ class Books extends Component {
   //     API.getBook()
   //         .then(res => this.setState({
   //             books: res.data,
-  //             title: "",
-  //             author: "",
   //             search: ""
   //         }))
-  //         .catch(error => console.log(error));
-  // };
-
-  // searchBooks = query => {
-  //     API.searchBooks(query)
-  //         .then(res => this.setState({
-  //             books: res.data.items,
-  //             title: "",
-  //             author: "",
-  //             search: ""
-  //         }, console.log(res.data.items)))
   //         .catch(error => console.log(error));
   // };
 

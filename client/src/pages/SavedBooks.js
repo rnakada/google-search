@@ -20,24 +20,26 @@ class SavedBooks extends Component {
             .catch(error => console.log(error));
     }
 
-    loadBooks = () => {
-        API.getBooks()
-            .then(res => this.setState({ books: res.data }))
-            .catch(error => console.log(error));
-    };
-
     deleteBook = id => {
         API.deleteBook(id)
             .then(res => this.loadBooks())
             .catch(error => console.log(error));
     }
 
+    loadBooks = () => {
+        API.getBooks()
+            .then(res => this.setState({ books: res.data }))
+            .catch(error => console.log(error));
+    };
+
     render() {
         return (
 
             <Container>
                 <SavedJumbotron />
-                {this.state.books.map((book) => {
+                <SavedBox />
+
+                {/* {this.state.books.map((book) => {
                     <SavedBox
                         key={book.id}
                         title={book.volumeInfo.title}
@@ -51,7 +53,8 @@ class SavedBooks extends Component {
                             description: book.volumeInfo.description
                         })}
                     />
-                })}
+                }
+                )} */}
             </Container>
 
         )
