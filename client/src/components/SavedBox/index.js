@@ -1,6 +1,6 @@
 import React from "react";
 
-const ResultBox = props => (
+const SavedBox = props => (
 
     <div className="container-fluid">
         <br />
@@ -16,7 +16,7 @@ const ResultBox = props => (
                     <strong>Author:</strong> {props.author}
                     <br />
                     <br />
-                    <button onClick={props.saveBook} className="btn btn-success">Save</button>
+                    <button onClick={props.saveBook} className="border">X</button>
                 </p>
             </div>
             <div className="col-8">
@@ -29,4 +29,4 @@ const ResultBox = props => (
 
 )
 
-export default ResultBox;
+export default SavedBox;

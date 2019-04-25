@@ -87,18 +87,24 @@ class Books extends Component {
           handleInputChange={this.handleInputChange}
           handleFormSubmit={this.handleFormSubmit}
         />
-        
-          {this.state.books.map((book) => {
-            return (
-              <ResultBox
-              key={book.id} 
-              title={book.volumeInfo.title} 
+
+        {this.state.books.map((book) => {
+          return (
+            <ResultBox
+              key={book.id}
+              title={book.volumeInfo.title}
               author={book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "No Author's Listed"}
               src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : book.volumeInfo.imageLinks}
               description={book.volumeInfo.description}
-              />
-            )
-          })}
+              saveBook={() => this.saveBook({
+                title: book.volumeInfo.title,
+                author: book.volumeInfo.authors ? book.volumeInfo.authors.join(", ") : "No Author's Listed",
+                src: book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : book.volumeInfo.imageLinks,
+                description: book.volumeInfo.description
+              })}
+            />
+          )
+        })}
 
       </Container>
     )
